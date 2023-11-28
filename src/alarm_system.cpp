@@ -5,9 +5,9 @@
 #include <thread>
 #include <vector>
 #include <string>
-#include "includes\alarm_system.h"
-#include "includes\camera.h"
-#include "includes\sensor.h"
+#include "..\includes\alarm_system.h"
+#include "..\includes\camera.h"
+#include "..\includes\sensor.h"
 
 alarm_system::alarm_system(sensor *sensor1, sensor *sensor2, camera *cam)
 {
@@ -22,16 +22,16 @@ alarm_system::~alarm_system()
 
 void alarm_system::start_system()
 {
-label:
 
-    if (system_state == "inactive")
+
+    newstart: if (system_state == "inactive")
     {
         while (system_state == "inactive")
         {
             if (valid(p))
             {
                 event_handler(0);
-                goto label;
+                goto newstart;
             }
             std::cout << "Invalid pin" << std::endl;
         }
@@ -64,7 +64,7 @@ label:
             if (compute_detection(matrix, s1_data, s2_data))
             {
                 event_handler(2);
-                goto label;
+                goto newstart;
             }
         }
     }
@@ -81,18 +81,18 @@ label:
             if (valid(p))
             {
                 event_handler(0);
-                goto label;
+                goto newstart;
             }
             end = std::chrono::steady_clock::now();
             if (std::chrono::duration_cast<std::chrono::seconds>(end - begin).count() >= 10)
             {
                 system_state = "active";
-                goto label;
+                goto newstart;
             }
         }
     }
 
-    goto label;
+    goto newstart;
 }
 
 // return random integer between 0 and 9
@@ -115,7 +115,7 @@ bool alarm_system::valid(int p)
 }
 
 // Compute and identify detection
-bool compute_detection(std::vector<std::vector<int>> matrix, int s1_data, int s2_data)
+bool alarm_system::compute_detection(std::vector<std::vector<int>> matrix, int s1_data, int s2_data)
 {
     // compute using vector
     std::vector<std::vector<int>> new_matrix;

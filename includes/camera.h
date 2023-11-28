@@ -15,6 +15,6 @@ private:
 
 };
 
-#include "src\camera.cpp"
+#include "..\src\camera.cpp"
 
 #endif
