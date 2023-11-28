@@ -1,4 +1,4 @@
-#include "includes\sensor.h"
+#include "..\includes\sensor.h"
 #include <chrono>
 #include <cstdlib>
 #include <thread>

@@ -13,6 +13,7 @@ public:
 private:
 };
 
-#include "src\sensor.cpp"
+#include "..\src\sensor.cpp"
+
 
 #endif
