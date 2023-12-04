@@ -30,3 +30,4 @@ void camera::cam_data(std::promise<std::vector<std::vector<int>>> &&p)
     p.set_value(matrix);
     std::this_thread::sleep_for(std::chrono::milliseconds(120));
 }
+
