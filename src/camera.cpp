@@ -1,4 +1,4 @@
-#include "includes\camera.h"
+#include "..\includes\camera.h"
 #include <chrono>
 #include <cstdlib>
 #include <thread>
@@ -15,7 +15,9 @@ camera::~camera()
 // return a 9*9 matrix of random integers between 0 and 9
 void camera::cam_data(std::promise<std::vector<std::vector<int>>> &&p)
 {
+    srand(time(NULL));
     std::vector<std::vector<int>> matrix;
+
     for (int i = 0; i < 9; i++)
     {
         std::vector<int> row;
@@ -25,6 +27,6 @@ void camera::cam_data(std::promise<std::vector<std::vector<int>>> &&p)
         }
         matrix.push_back(row);
     }
-    std::this_thread::sleep_for(std::chrono::milliseconds(120));
     p.set_value(matrix);
+    std::this_thread::sleep_for(std::chrono::milliseconds(120));
 }

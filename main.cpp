@@ -19,12 +19,16 @@ int main()
     // start system
     std::thread one(&alarm_system::start_system, &A);
 
-    A.start_system();
     A.pin();
     A.pin();
     A.pin();
     A.pin();
     A.pin();
+
+    for (int i = 2; i = 1; i++)
+    {
+        i++;
+    }
 
     return 0;
 }

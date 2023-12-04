@@ -5,9 +5,9 @@
 #include <thread>
 #include <vector>
 #include <string>
-#include "includes\alarm_system.h"
-#include "includes\camera.h"
-#include "includes\sensor.h"
+#include "..\includes\alarm_system.h"
+#include "..\includes\camera.h"
+#include "..\includes\sensor.h"
 
 alarm_system::alarm_system(sensor *sensor1, sensor *sensor2, camera *cam)
 {
@@ -30,12 +30,14 @@ label:
         {
             if (valid(p))
             {
+                p = 7;
                 event_handler(0);
                 goto label;
             }
             std::cout << "Invalid pin" << std::endl;
         }
     }
+
     if (system_state == "active")
     {
         while (system_state == "active")
@@ -50,8 +52,8 @@ label:
             std::future<std::vector<std::vector<int>>> f3 = p3.get_future();
 
             std::thread t3(&camera::cam_data, &C, std::move(p3));
-            std::thread t1(&sensor::sens_data, &s1, std::move(p1));
-            std::thread t2(&sensor::sens_data, &s2, std::move(p2));
+            std::thread t1(&sensor::sens_data, &s1, std::move(p1), 3);
+            std::thread t2(&sensor::sens_data, &s2, std::move(p2), 16);
 
             t1.join();
             t2.join();
@@ -66,6 +68,7 @@ label:
                 event_handler(2);
                 goto label;
             }
+
         }
     }
 
@@ -80,6 +83,7 @@ label:
         {
             if (valid(p))
             {
+                p = 7;
                 event_handler(0);
                 goto label;
             }
@@ -115,8 +119,9 @@ bool alarm_system::valid(int p)
 }
 
 // Compute and identify detection
-bool compute_detection(std::vector<std::vector<int>> matrix, int s1_data, int s2_data)
+bool alarm_system::compute_detection(std::vector<std::vector<int>> matrix, int s1_data, int s2_data)
 {
+
     // compute using vector
     std::vector<std::vector<int>> new_matrix;
     for (int i = 0; i < 9; i++)
@@ -138,7 +143,17 @@ bool compute_detection(std::vector<std::vector<int>> matrix, int s1_data, int s2
         }
     }
     std::cout << "sum: " << sum << std::endl;
-    return sum >= 6290;
+    // std::cout << "sensor: " << s1_data + s2_data << std::endl;
+    // for (int i = 0; i < matrix.size(); i++)
+    // {
+    //     for (int j = 0; j < matrix[i].size(); j++)
+    //     {
+    //         std::cout << matrix[i][j]<< " ";
+    //     }
+    //     std::cout << std::endl;
+    // }
+    
+    return sum * 2 >= 6290;
 }
 
 // Event handler to ensure that every event is handled correctly

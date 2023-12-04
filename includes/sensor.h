@@ -8,11 +8,11 @@ class sensor
 public:
     sensor();
     ~sensor();
-    void sens_data(std::promise<int> &&p);
+    void sens_data(std::promise<int> &&p, int i);
 
 private:
 };
 
-#include "src\sensor.cpp"
+#include "..\src\sensor.cpp"
 
 #endif

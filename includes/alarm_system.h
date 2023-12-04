@@ -22,10 +22,10 @@ private:
     sensor s1;
     sensor s2;
     camera C;
-    std::string system_state = "Inactive";
+    std::string system_state = "inactive";
     int p;
 };
 
-#include "src\alarm_system.cpp"
+#include "..\src\alarm_system.cpp"
 
 #endif
