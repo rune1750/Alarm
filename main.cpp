@@ -19,16 +19,24 @@ int main()
     // start system
     std::thread one(&alarm_system::start_system, &A);
 
-    A.pin();
-    A.pin();
-    A.pin();
-    A.pin();
-    A.pin();
-
-    for (int i = 2; i = 1; i++)
+    while (A.p % 2 != 0)
     {
-        i++;
-    }
+        A.pin();
+    };
+
+    // Start a chrono timer
+    auto start = std::chrono::high_resolution_clock::now();
+    while (true)
+    {
+        // if the system has been running for 10 seconds, kill it
+        auto end = std::chrono::high_resolution_clock::now();
+        std::chrono::duration<double> elapsed = end - start;
+        if (elapsed.count() > 60)
+        {
+            A.kill();
+            break;
+        }
+        };
 
     return 0;
 }

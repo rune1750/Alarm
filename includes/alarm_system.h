@@ -12,18 +12,18 @@ public:
     alarm_system(sensor *s1, sensor *s2, camera *C);
     ~alarm_system();
     void start_system();
-    void kill(); 
+    void kill();
     void pin();
+    int p = 1;
 
 private:
     void event_handler(int event_number);
-    bool valid(int p); 
+    bool valid(int p);
     bool compute_detection(std::vector<std::vector<int>> cam_data, int s1_data, int s2_data);
     sensor s1;
     sensor s2;
     camera C;
     std::string system_state = "inactive";
-    int p;
 };
 
 #include "..\src\alarm_system.cpp"

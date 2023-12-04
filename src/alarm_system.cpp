@@ -69,7 +69,6 @@ label:
                 event_handler(2);
                 goto label;
             }
-
         }
     }
 
@@ -104,7 +103,6 @@ label:
 void alarm_system::pin()
 {
     srand(time(NULL));
-    event_handler(0);
     p = rand() % 10;
 }
 
@@ -112,6 +110,7 @@ void alarm_system::pin()
 void alarm_system::kill()
 {
     event_handler(1);
+    std::cout << "KILLING SYSTEM" << std::endl;
 }
 
 bool alarm_system::valid(int p)
