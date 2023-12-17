@@ -1,7 +1,6 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
-#include <future>
 
 class sensor
 {
@@ -13,7 +12,7 @@ public:
 private:
 };
 
-#include "..\src\sensor.cpp"
+#include "sensor.cpp"
 
 
 #endif

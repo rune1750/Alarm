@@ -1,8 +1,7 @@
 #ifndef ALARM_SYSTEM_H
 #define ALARM_SYSTEM_H
 
-#include <future>
-#include <thread>
+
 #include <vector>
 #include <string>
 
@@ -26,6 +25,6 @@ private:
     int p;
 };
 
-#include "..\src\alarm_system.cpp"
+#include "alarm_system.cpp"
 
 #endif

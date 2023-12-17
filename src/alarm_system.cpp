@@ -2,12 +2,11 @@
 #include <unistd.h>
 #include <iostream>
 #include <cstdlib>
-#include <future>
 #include <vector>
 #include <string>
-#include "..\includes\alarm_system.h"
-#include "..\includes\camera.h"
-#include "..\includes\sensor.h"
+#include "alarm_system.h"
+#include "camera.h"
+#include "sensor.h"
 
 alarm_system::alarm_system(sensor *sensor1, sensor *sensor2, camera *cam)
 {
@@ -67,7 +66,7 @@ void alarm_system::start_system()
         while (system_state == "alarmed")
         {
             pin();
-            
+
             if (valid(p))
             {
                 event_handler(0);

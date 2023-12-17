@@ -1,7 +1,6 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <future>
 #include <vector>
 
 class camera
@@ -15,6 +14,6 @@ private:
 
 };
 
-#include "..\src\camera.cpp"
+// #include "camera.cpp"
 
 #endif

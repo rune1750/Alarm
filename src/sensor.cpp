@@ -1,8 +1,6 @@
-#include "..\includes\sensor.h"
-#include <chrono>
+#include "sensor.h"
 #include <cstdlib>
-#include <thread>
-#include <future>
+#include <ctime>
 
 sensor::sensor()
 {

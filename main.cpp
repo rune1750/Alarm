@@ -1,13 +1,16 @@
-#include "includes\sensor.h"
-#include "includes\camera.h"
-#include "includes\alarm_system.h"
+#include "src\sensor.h"
+#include "src\camera.h"
+#include "src\alarm_system.h"
 #include <iostream>
 #include <cstdlib>
 #include <chrono>
+#include "camera_test.cpp"
 
 int main()
 {
-    // Create sensor and camera objects
+
+    testCam();
+    //Create sensor and camera objects
     sensor s1;
     sensor s2;
     camera C;
@@ -24,12 +27,6 @@ int main()
     // start system
     A.start_system();
 
-
-
-    while(1){
-        int i = 0;
-        i++;
-    }
 
     return 0;
 }
