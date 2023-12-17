@@ -1,19 +1,19 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <vector>
+#include "randomNumberGenerator.cpp"
 
 class camera
 {
 public:
     camera();
     ~camera();
-    std::vector<std::vector<int>> cam_data();
+    long cam_data();
 
 private:
 
 };
 
-// #include "camera.cpp"
+//#include "camera.cpp"
 
 #endif
