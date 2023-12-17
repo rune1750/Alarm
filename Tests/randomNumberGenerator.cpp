@@ -17,6 +17,10 @@ inline long int xorshf96() {          //period 2^96-1
   y = z;
   z = t ^ x ^ y;
 
+  if(z < 0){
+    z*=-1;
+  }
+
   return z;
 }
 
