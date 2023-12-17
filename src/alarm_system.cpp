@@ -1,8 +1,8 @@
 #include <chrono>
+#include <unistd.h>
 #include <iostream>
 #include <cstdlib>
 #include <future>
-#include <thread>
 #include <vector>
 #include <string>
 #include "..\includes\alarm_system.h"
@@ -30,6 +30,7 @@ void alarm_system::start_system()
         {
             if (valid(p))
             {
+                p = 7;
                 event_handler(0);
                 goto newstart;
             }
@@ -40,26 +41,13 @@ void alarm_system::start_system()
     {
         while (system_state == "active")
         {
-            // thread sensors and camera
-            std::promise<int> p1;
-            std::promise<int> p2;
-            std::promise<std::vector<std::vector<int>>> p3;
 
-            std::future<int> f1 = p1.get_future();
-            std::future<int> f2 = p2.get_future();
-            std::future<std::vector<std::vector<int>>> f3 = p3.get_future();
+            int s1_data = s1.sens_data();
+            
+            int s2_data = s2.sens_data(); 
 
-            std::thread t3(&camera::cam_data, &C, std::move(p3));
-            std::thread t1(&sensor::sens_data, &s1, std::move(p1));
-            std::thread t2(&sensor::sens_data, &s2, std::move(p2));
-
-            t1.join();
-            t2.join();
-            t3.join();
-
-            int s1_data = f1.get();
-            int s2_data = f2.get();
-            std::vector<std::vector<int>> matrix = f3.get();
+            std::vector<std::vector<int>> matrix = C.cam_data();
+            usleep(120000);
 
             if (compute_detection(matrix, s1_data, s2_data))
             {
@@ -78,6 +66,8 @@ void alarm_system::start_system()
         std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
         while (system_state == "alarmed")
         {
+            pin();
+            
             if (valid(p))
             {
                 event_handler(0);

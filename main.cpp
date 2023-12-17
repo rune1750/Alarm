@@ -4,7 +4,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <chrono>
-#include <thread>
 
 int main()
 {
@@ -15,15 +14,17 @@ int main()
 
     // Create alarm system object
     alarm_system A(&s1, &s2, &C);
-
+    
+    A.pin();
+    A.pin();
+    A.pin();
+    A.pin();
+    A.pin();
+    
     // start system
-    std::thread one(&alarm_system::start_system, &A);
+    A.start_system();
 
-    A.pin();
-    A.pin();
-    A.pin();
-    A.pin();
-    A.pin();
+
 
     while(1){
         int i = 0;

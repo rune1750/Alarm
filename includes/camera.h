@@ -9,7 +9,7 @@ class camera
 public:
     camera();
     ~camera();
-    void cam_data(std::promise<std::vector<std::vector<int>>> &&p);
+    std::vector<std::vector<int>> cam_data();
 
 private:
 

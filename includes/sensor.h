@@ -8,7 +8,7 @@ class sensor
 public:
     sensor();
     ~sensor();
-    void sens_data(std::promise<int> &&p);
+    int sens_data();
 
 private:
 };
