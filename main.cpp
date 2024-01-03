@@ -4,12 +4,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <chrono>
-#include "camera_test.cpp"
+// #include "camera_test.cpp"
 
 int main()
 {
-
-    testCam();
     //Create sensor and camera objects
     sensor s1;
     sensor s2;
