@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/GitHub/HWSW/Alarm/Tests",
-      "program": "c:/GitHub/HWSW/Alarm/Tests/build/Debug/outDebug",
+      "cwd": "c:/Users/Rune/Desktop/Alarm",
+      "program": "c:/Users/Rune/Desktop/Alarm/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
