@@ -1,5 +1,5 @@
 #include "camera.h"
-#include <chrono>
+//#include <chrono>
 #include <iostream>
 
 int main(){
@@ -11,9 +11,9 @@ int main(){
         for(int j=0; j<9; j++)
         {
             matrix[i][j] = Ca.cam_data();
-            std::cout << matrix[i][j]<< " ";
+            //std::cout << matrix[i][j]<< " ";
         }
-        std::cout<< '\n';
+        //std::cout<< '\n';
     }
     // end timer
     //auto end = std::chrono::high_resolution_clock::now();
