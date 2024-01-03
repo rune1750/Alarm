@@ -2,7 +2,6 @@
 #define CAMERA_H
 
 
-
 class camera
 {
 public:

@@ -3,7 +3,7 @@
 #include <iostream>
 
 int main(){
-   auto start = std::chrono::high_resolution_clock::now();
+    auto start = std::chrono::high_resolution_clock::now();
     camera Ca = camera();
     int matrix[9][9];
     for(int i=0; i<9; i++)
