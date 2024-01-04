@@ -3,18 +3,10 @@
 #include <iostream>
 
 int main(){
+    camera C;
+    int dim = 9;
     auto start = std::chrono::high_resolution_clock::now();
-    camera Ca = camera();
-    int matrix[9][9];
-    for(int i=0; i<9; i++)
-    {
-        for(int j=0; j<9; j++)
-        {
-            matrix[i][j] = Ca.cam_data();
-            //std::cout << matrix[i][j]<< " ";
-        }
-        //std::cout<< '\n';
-    }
+    int** matrix = C.cam_data(dim);
     // end timer
     auto end = std::chrono::high_resolution_clock::now();
     // print time elapsed
