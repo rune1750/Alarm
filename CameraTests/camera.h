@@ -8,7 +8,7 @@ class camera
 public:
     camera();
     ~camera();
-    int** cam_data(int dim);
+    int* cam_data(int dim);
 
 private:
 
