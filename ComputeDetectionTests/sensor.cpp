@@ -19,7 +19,7 @@ long sensor::sens_data()
     x ^= x << 16;
     x ^= x >> 5;
     x ^= x << 1;
-  
+
     t = x;
     x = y;
     y = z;
