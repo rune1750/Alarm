@@ -8,12 +8,12 @@ class camera
 public:
     camera();
     ~camera();
-    int* cam_data(int dim);
+    int cam_data();
 
 private:
 
 };
 
-//#include "camera.cpp"
+// #include "camera.cpp"
 
 #endif
