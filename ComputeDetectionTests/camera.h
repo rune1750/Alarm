@@ -1,6 +1,5 @@
 #ifndef CAMERA_H
 #define CAMERA_H
-#include "randomNumberGenerator.cpp"
 
 
 class camera
@@ -13,6 +12,6 @@ public:
 private:
 };
 
-#include "camera.cpp"
+//#include "camera.cpp"
 
 #endif
