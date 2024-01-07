@@ -1,8 +1,6 @@
 #ifndef SENSOR_H
 #define SENSOR_H
 
-
-
 class sensor
 {
 public:
@@ -13,7 +11,7 @@ public:
 private:
 };
 
-#include "sensor.cpp"
+//#include "sensor.cpp"
 
 
 #endif
