@@ -3,7 +3,7 @@
 
 bool Compute_Detection(std::vector<std::vector<int>> matrix, int s1_data, int s2_data)
 {
-
+    // auto start = std::chrono::high_resolution_clock::now();
     // compute using vector
     std::vector<std::vector<int>> new_matrix;
     for (int i = 0; i < 9; i++)
@@ -34,6 +34,7 @@ bool Compute_Detection(std::vector<std::vector<int>> matrix, int s1_data, int s2
     //     }
     //     std::cout << std::endl;
     // }
-
+    // auto end = std::chrono::high_resolution_clock::now();
+    // std::cout << "time elapsed: "<< std::chrono::duration_cast<std::chrono::nanoseconds>(end-start).count()<< std::endl;
     return sum * 2 >= 6290;
 }

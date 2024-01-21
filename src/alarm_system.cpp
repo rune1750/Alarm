@@ -63,12 +63,13 @@ label:
             int s1_data = f1.get();
             int s2_data = f2.get();
             std::vector<std::vector<int>> matrix = f3.get();
-
+            
             if (compute_detection(matrix, s1_data, s2_data))
             {
                 event_handler(2);
                 goto label;
             }
+            
         }
     }
 
