@@ -65,7 +65,6 @@ void alarm_system::start_system()
         std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
         while (system_state == "alarmed")
         {
-            pin();
 
             if (valid(p))
             {
@@ -127,7 +126,7 @@ bool alarm_system::compute_detection(std::vector<std::vector<int>> matrix, int s
         }
     }
     std::cout << "sum: " << sum << std::endl;
-    return sum >= 6290;
+    return 2*sum >= 6290;
 }
 
 // Event handler to ensure that every event is handled correctly
@@ -214,6 +213,7 @@ void alarm_system::event_handler(int event_number)
         if (event_number == 0)
         {
             std::cout << "Valid pin, returning to active state" << std::endl;
+            system_state = "active";
         }
         // Kill the system
         else if (event_number == 1)
