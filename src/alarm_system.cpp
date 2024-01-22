@@ -69,7 +69,6 @@ void alarm_system::start_system()
             if (valid(p))
             {
                 event_handler(0);
-                goto newstart;
             }
             end = std::chrono::steady_clock::now();
             if (std::chrono::duration_cast<std::chrono::seconds>(end - begin).count() >= 10)
